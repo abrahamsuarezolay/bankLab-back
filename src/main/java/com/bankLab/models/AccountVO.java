@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "accounts")
 @Data
@@ -25,19 +27,6 @@ public class AccountVO {
     @JoinColumn(name = "user")
     private UserVO user;
 
-    @OneToMany(mappedBy = "account_id")
-    private OperationVO operations;
-
-    public AccountVO(float balance, String account_number, String account_name) {
-        this.balance = balance;
-        this.account_number = account_number;
-        this.account_name = account_name;
-    }
-
-    public AccountVO(float balance, String account_number, String account_name, UserVO user) {
-        this.balance = balance;
-        this.account_number = account_number;
-        this.account_name = account_name;
-        this.user = user;
-    }
+    @OneToMany(mappedBy = "operation_id")
+    private List<OperationVO> operations;
 }
