@@ -1,4 +1,4 @@
-package com.bankLab.respositories;
+package com.bankLab.repositories;
 
 import com.bankLab.models.AccountVO;
 import org.springframework.data.repository.CrudRepository;
