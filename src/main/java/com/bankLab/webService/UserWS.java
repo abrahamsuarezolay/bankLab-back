@@ -56,5 +56,19 @@ public class UserWS {
             return new ResponseEntity("Error al guardar el usuario", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/user/deleteuserbyid/{userId}")
+    public ResponseEntity<?> deleteUserByUserId(@PathVariable int userId){
+        try{
+            UserVO user = userService.findById(userId).get();
+            userService.delete(user);
+            return new ResponseEntity<>("Usuario eliminado", HttpStatus.OK);
+
+        }catch(NoSuchElementException e){
+            return new ResponseEntity<>("Usuario no encontrado", HttpStatus.NOT_FOUND);
+        }catch(Exception e){
+            return new ResponseEntity<>("Error en la peticion", HttpStatus.BAD_REQUEST);
+        }
+    }
 }
 
