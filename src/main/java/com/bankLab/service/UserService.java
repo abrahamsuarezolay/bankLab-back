@@ -13,6 +13,8 @@ public interface UserService {
 
     Optional<UserVO> findByUserName(String user_name);
 
+    Optional<UserVO> findByEmail(String email);
+
     boolean existsById(Integer integer);
 
     Iterable<UserVO> findAll();

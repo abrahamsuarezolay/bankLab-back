@@ -38,6 +38,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.existsById(integer);
     }
 
+    public Optional<UserVO> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     @Override
     public Iterable<UserVO> findAll() {
         return userRepository.findAll();

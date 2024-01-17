@@ -16,7 +16,7 @@ public class UserVO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private int userId;
     @Column(length = 100)
     private String userName;
     @Column(length = 100)
