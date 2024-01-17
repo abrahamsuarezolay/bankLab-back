@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -16,17 +18,17 @@ public class UserVO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     @Column(length = 100)
-    private String user_name;
+    private String userName;
     @Column(length = 100)
     private String email;
     @Column(length = 32)
     private String password;
 
-    @OneToMany(mappedBy = "user_id", cascade = CascadeType.REMOVE)
-    private AccountVO accounts;
+    @OneToMany(mappedBy = "account_id", cascade = CascadeType.REMOVE)
+    private List<AccountVO> accounts;
 
-    public UserVO(String user_name, String email, String password) {
-        this.user_name = user_name;
+    public UserVO(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }

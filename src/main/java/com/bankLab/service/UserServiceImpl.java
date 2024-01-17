@@ -19,6 +19,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(entity);
     }
 
+    public Optional<UserVO> findByUserName(String user_name) {
+        return userRepository.findByUserName(user_name);
+    }
+
     @Override
     public <S extends UserVO> Iterable<S> saveAll(Iterable<S> entities) {
         return userRepository.saveAll(entities);

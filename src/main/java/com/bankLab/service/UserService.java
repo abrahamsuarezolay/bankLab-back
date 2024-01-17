@@ -11,6 +11,8 @@ public interface UserService {
 
     Optional<UserVO> findById(Integer integer);
 
+    Optional<UserVO> findByUserName(String user_name);
+
     boolean existsById(Integer integer);
 
     Iterable<UserVO> findAll();
